@@ -1,0 +1,29 @@
+{
+  "name": "tech-treasury",
+  "version": "1.0.0",
+  "description": "A blog dedicated to allowing developers to come together and share technical concepts, recent advancements, and new technologies.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "seed": "node seeds/seed.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LoganHild/tech-treasury.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/LoganHild/tech-treasury/issues"
+  },
+  "homepage": "https://github.com/LoganHild/tech-treasury#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.3.4",
+    "mysql2": "^2.3.0",
+    "sequelize": "^6.6.5"
+  }
+}

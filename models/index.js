@@ -5,6 +5,14 @@ User.hasMany(Post, {
 
 });
 
-Post.belongsto(User, {
-    
+Post.belongsTo(User, {
+
 })
+
+Post.hasMany(Comment, {
+
+});
+
+Comment.belongsTo(Post, {
+
+});

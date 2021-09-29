@@ -4,20 +4,20 @@ const postData = [
     {
         title: 'Thoughts',
         contents: 'I think this is hard.',
-        date: '',
-        user_name: '',
+        date: 'September 27, 2021 10:00:00',
+        user_name: 'lhildebrandt',
     },
     {
         title: 'MySQL',
         contents: 'This is confusing.',
-        date: '',
-        user_name: '',
+        date: 'September 28, 2021 08:30:00',
+        user_name: 'lhildebrandt',
     },
     {
         title: 'Confused',
-        contents: 'I agree',
-        date: '',
-        user_name: '',
+        contents: 'So lost.',
+        date: 'September 29, 2021 14:01:00',
+        user_name: 'lhildebrandt',
     },
 ];
 

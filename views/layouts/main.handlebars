@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Museum</title>
+  <title>TechTreasury</title>
   <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 
@@ -12,20 +12,27 @@
   <header>
     <h1>Welcome to the TechTreasury!</h1>
   </header>
-  <nav>
-    <a href="/">Home</a>
-    <a href="/dashboard">Dashboard</a>
-    {{#if loggedIn}}
-    <button id="logout" class="btn-no-style">Logout</button>
-    {{else}}
-    <a href="/login">Login</a>
-    {{/if}}
+  <nav class="navbar">
+    <ul>
+      <li class="li-inline nav-item"><a href="/">Home</a></li>
+      <li class="li-inline nav-item">
+        {{#if loggedIn}}
+        <a href="/dashboard">Dashboard</a>
+        {{else}}
+        <a href="/login"></a>
+        {{/if}}
+     </li>
+     <li class="li-inline nav-item">
+          {{#if loggedIn}}
+          <button id="logout" class="btn-no-style">Logout</button>
+          {{else}}
+          <a href="/login">Login</a>
+          {{/if}}
+     </li>
+    </ul>
   </nav>
   <main>
-    <aside>
-      <h2>Enjoy the galleries!</h2>
-    </aside>
-    <div class="gallery">
+    <div class="container">
       {{{body}}}
     </div>
   </main>

@@ -17,9 +17,9 @@
       <li class="li-inline nav-item"><a href="/">Home</a></li>
       <li class="li-inline nav-item">
         {{#if loggedIn}}
-        <a href="/login">Dashboard</a>
+        <a href="/dashboard" class="dashboard">Dashboard</a>
         {{else}}
-        <a href="/dashboard">Dashboard</a>
+        <a href="/login" class="dashboard">Dashboard</a>
         {{/if}}
       </li>
      {{#if loggedIn}}

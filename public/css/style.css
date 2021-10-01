@@ -61,19 +61,12 @@ nav a {
   text-align: center;
 }
 
+.dashboard {
+  color: var(--dark);
+}
 nav a:hover {
   color: var(--secondary);
   background-color: var(--dark);
-}
-
-.gallery {
-  flex: 4;
-  background-color: #fff;
-  padding: 50px;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  align-items: center;
 }
 
 .btn-no-style {
@@ -85,6 +78,12 @@ nav a:hover {
   font-size: 100%;
   transition: color 0.1s;
   margin-left: 16px;
+}
+
+#logout:hover {
+  color: var(--secondary);
+  background-color: var(--dark);
+  padding: 14px 20px;
 }
 
 img {
@@ -99,11 +98,6 @@ img {
   margin-bottom: 25px;
 }
 
-.painting-details {
-  text-align: center;
-  padding: 10px 20px;
-  font-weight: bold;
-}
 
 /* CARDS */
 .card {

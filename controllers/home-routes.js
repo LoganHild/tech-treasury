@@ -7,44 +7,21 @@ const withAuth = require('../utils/auth');
 router.get('/', withAuth, async (req, res) => {
   try {
     const userData = await User.findAll({
+      attributes: { exclude: ['password'] },
     });
 
-    const posts = postData.map((post) =>
-      post.get({ plain: true })
+    const users = userData.map((blog) =>
+      blog.get({ plain: true })
     );
 
-    res.render('post', {
-      posts
+    res.render('homepage', {
+      users,
+      loggedIn: req.session.loggedIn
     });
   } catch (err) {
-    console.log(err);
     res.status(500).json(err);
   }
-
-  
 });
-
-router.post('/', async (req, res) => {
-  const postData = await Post.findAll().catch((err) => {
-    res.json(err);
-  });
-  console.log(postData)
-  res.render('post', { postData })
-})
-
-router.get('/post/:id', async (req,res) => {
-  try {
-    const postData = await Post.findByPk(req.params.id);
-    if (!postData) {
-      res.status(404).json({ message: 'No post with this id!'});
-      return;
-    }
-    const posts = postData.get({ plain: true });
-    res.render('post', { posts });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-})
 
 router.get('/login', (req,res) => {
   if(req.session.loggedIn) {

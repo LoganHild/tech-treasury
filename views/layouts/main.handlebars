@@ -17,18 +17,22 @@
       <li class="li-inline nav-item"><a href="/">Home</a></li>
       <li class="li-inline nav-item">
         {{#if loggedIn}}
-        <a href="/dashboard">Dashboard</a>
+        <a href="/login">Dashboard</a>
         {{else}}
-        <a href="/login"></a>
+        <a href="/dashboard">Dashboard</a>
         {{/if}}
-     </li>
-     <li class="li-inline nav-item">
-          {{#if loggedIn}}
-          <button id="logout" class="btn-no-style">Logout</button>
-          {{else}}
-          <a href="/login">Login</a>
-          {{/if}}
-     </li>
+      </li>
+     {{#if loggedIn}}
+      <li class="li-inline nav-item">
+        <button id="logout" class="btn-no-style">Logout</button>
+      </li>
+
+     
+     {{else}}
+      <li><a href="/login">Login</a></li>
+      
+     {{/if}}
+
     </ul>
   </nav>
   <main>
@@ -36,9 +40,7 @@
       {{{body}}}
     </div>
   </main>
-  {{#if loggedIn}}
   <script src="/js/logout.js"></script>
-  {{/if}}
 </body>
 
 </html>

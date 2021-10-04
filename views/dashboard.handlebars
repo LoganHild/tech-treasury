@@ -1,6 +1,3 @@
-<section class="container">
-    <h3 class="post-name">title of post{{post.title}}</h3>
-    <h4>Contents of post{{post.contents}}</h4>
-    <h4>date of post{{post.date}}</h4>
-    <h4>username of person posting</h4>
-</section>
+{{#each posts as |post|}}
+{{> post-details}}
+{{/each}}

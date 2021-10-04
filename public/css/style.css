@@ -156,3 +156,7 @@ img {
   align-content: flex-start;
   align-items: center;
 }
+
+.card-content {
+  margin: auto;
+}

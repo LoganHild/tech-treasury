@@ -1,28 +1,24 @@
-const { Post } = require('../models');
+
+const { Post } = require("../models");
 
 const postData = [
-    {
-        title: 'Thoughts',
-        contents: 'I think this is hard.',
-        user_id: '1',
-    },
-    {
-        title: 'MySQL',
-        contents: 'This is confusing.',
-        // user_id: '1',
-    },
-    {
-        title: 'Confused',
-        contents: 'So lost.',
-        // user_id: '1',
-    },
-    {
-        title: 'No Idea',
-        contents: 'I feel stupid.',
-        // user_id: '1',
-    }
+  {
+    title: "McDonald's is life",
+    content: "McDonald's is king, change my mind.",
+    user_id: 1,
+  },
+  {
+    title: "Feeling lit feeling light",
+    content: "2am, Summer Night, *insert awesome beat here*.",
+    user_id: 2,
+  },
+  {
+    title: "Bored",
+    content: "Bored in the house and I'm in the house bored.",
+    user_id: 3,
+  },
 ];
 
-const seedPost = () => Post.bulkCreate(postData);
+const seedPosts = () => Post.bulkCreate(postData);
 
-module.exports = seedPost
+module.exports = seedPosts;

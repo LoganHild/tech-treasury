@@ -1,23 +1,75 @@
 const router = require("express").Router();
-const { User } = require("../../models");
-
-router.post("/", async (req, res) => {
-  try {
-    const dbUserData = await User.create({
-      username: req.body.username,
-      email: req.body.email,
-      password: req.body.password,
+const { User, Post, Comment } = require("../../models");
+router.get("/", (req, res) => {
+  User.findAll({
+    attributes: { exclude: ["[password"] },
+  })
+    .then((dbUserData) => res.json(dbUserData))
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
     });
+});
 
-    req.session.save(() => {
-      req.session.loggedIn = true;
+router.get("/:id", (req, res) => {
+  User.findOne({
+    attributes: { exclude: ["password"] },
+    where: {
+      id: req.params.id,
+    },
+    include: [
+      {
+        model: Post,
+        attributes: ["id", "title", "content", "created_at"],
+      },
 
-      res.status(200).json(dbUserData);
+      {
+        model: Comment,
+        attributes: ["id", "comment_text", "created_at"],
+        include: {
+          model: Post,
+          attributes: ["title"],
+        },
+      },
+      {
+        model: Post,
+        attributes: ["title"],
+      },
+    ],
+  })
+    .then((dbUserData) => {
+      if (!dbUserData) {
+        res.status(404).json({ message: "No user with this ID" });
+        return;
+      }
+      res.json(dbUserData);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
     });
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
+});
+
+router.post("/", (req, res) => {
+  User.create({
+    username: req.body.username,
+    email: req.body.email,
+    password: req.body.password,
+  })
+
+    .then((dbUserData) => {
+      req.session.save(() => {
+        req.session.user_id = dbUserData.id;
+        req.session.username = dbUserData.username;
+        req.session.loggedIn = true;
+
+        res.json(dbUserData);
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
 
 router.post("/login", async (req, res) => {

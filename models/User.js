@@ -2,12 +2,14 @@ const { Model, DataTypes } = require("sequelize");
 const bcrypt = require("bcryptjs");
 const sequelize = require("../config/connection");
 
+//  Create User model
 class User extends Model {
   checkPassword(loginPw) {
     return bcrypt.compareSync(loginPw, this.password);
   }
 }
 
+// User model fields
 User.init(
   {
     id: {
@@ -36,6 +38,7 @@ User.init(
       },
     },
   },
+  // Set up hooks for encyryption package
   {
     hooks: {
       async beforeCreate(newUserData) {

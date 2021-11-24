@@ -20,7 +20,7 @@
 
 
   ## Description
-  This is a tech-blog for developers to share the latest and greatest information about new technologies. Users can add comments as well as being able to edit and delete their own posts.
+  This is a tech-blog for developers to share information about new technologies, processes, or even just random thoughts with their peers. Users can add comments as well as being able to edit and delete their own posts.
 
   ## Installation
   * If installing on local from github ==>
